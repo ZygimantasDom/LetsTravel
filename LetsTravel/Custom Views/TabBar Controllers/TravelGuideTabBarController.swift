@@ -19,7 +19,6 @@ class TravelGuideTabBarController: UITabBarController {
             searchPlacesNC(),
             travelerMapNC(),
             favoritePlacesNC(),
-            travelerProfileNC()
         ]
     }
     
@@ -44,14 +43,6 @@ class TravelGuideTabBarController: UITabBarController {
         favoritePlacesVC.title = "My Favorite Places"
         let navController = UINavigationController(rootViewController: favoritePlacesVC)
         navController.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star.fill"), tag: 2)
-        return navController
-    }
-    
-    func travelerProfileNC() -> UINavigationController {
-        let travelerProfileVC = TravelerProfileVC()
-        travelerProfileVC.title = "Traveler Profile"
-        let navController = UINavigationController(rootViewController: travelerProfileVC)
-        navController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle.fill"), tag: 3)
         return navController
     }
 }

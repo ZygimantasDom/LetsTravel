@@ -18,14 +18,25 @@ class LTButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    init(backgroundColor: UIColor, title: String) {
+        super.init(frame: .zero)
+        self.backgroundColor = backgroundColor
+        self.setTitle(title, for: .normal)
+        configure()
+    }
+    
     func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        layer.borderWidth = 1
+        layer.borderWidth = 2
         layer.borderColor = UIColor.black.cgColor
-        layer.cornerRadius = 8
-        
-        backgroundColor = .systemMint
-        
+        layer.cornerRadius = 10
+        setTitleColor(.black, for: .normal)
+        titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+    }
+    
+    func set(backgroundColor: UIColor, title: String){
+        self.backgroundColor = backgroundColor
+        setTitle(title, for: .normal)
     }
 }
