@@ -9,6 +9,8 @@ import UIKit
 
 class SearchPlacesVC: UIViewController {
     
+    let places = MockData.places
+    
     let titleLabel = LTTitleLabel(textAlignment: .center, fontSize: 30)
     let searchTextField = LTTextField()
     let actionButton = LTButton(backgroundColor: .secondarySystemBackground, title: "Search")
@@ -37,6 +39,8 @@ class SearchPlacesVC: UIViewController {
         
         titleLabel.text = "Lets Travel!"
         
+        actionButton.addTarget(self, action: #selector(pushToDetailVC), for: .touchUpInside)
+        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -56,5 +60,12 @@ class SearchPlacesVC: UIViewController {
             actionButton.widthAnchor.constraint(equalToConstant: 300),
             actionButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    
+    @objc func pushToDetailVC() {
+        searchTextField.resignFirstResponder()
+        let selectedPlace = MockData.paris
+        let detailVC = PlaceDetailVC(place: selectedPlace)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

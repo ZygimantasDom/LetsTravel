@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Places: Codable, Hashable {
-    let id: UUID
+struct Place: Codable, Hashable {
+    var id = UUID()
     let name: String
     let location: String
     let rating: Double
